@@ -39,8 +39,8 @@ export default function Home() {
     ];
     const contacts = [
         {
-            'link':'tel:+33782538162',
-            'text':'Tel'
+            'link': 'tel:+33782538162',
+            'text': 'Tel'
         },
         {
             'link': 'mailto:hamoncelian@gmail.com',
@@ -106,6 +106,23 @@ export default function Home() {
         };
     }, []);
 
+    let click = 0;
+    const easterEgg = () => {
+        if (window.scrollY == 0) {
+            click++;
+            if (click == 15) {
+                document.getElementById('easter-egg').style.display = "block";
+            }
+        }
+    }
+    useEffect(() => {
+        window.addEventListener("click", easterEgg);
+        return () => {
+            window.removeEventListener("click", easterEgg);
+        }
+    }, []);
+
+
     const navLinkHomeText = '.Home();';
     const [navLinkHome, setNavLinkHome] = useState('');
     const navLinkProjectText = '.Projects();';
@@ -117,12 +134,13 @@ export default function Home() {
     useEffect(() => {
         if (window.scrollY > 600 && navDisplay === "flex") {
             if (navLinkHome !== navLinkHomeText) {
-            document.getElementById('nav-link-home').className = styles.blink;
-            const interval = setInterval(() => {
-                setNavLinkHome(navLinkHomeText.substring(0, navLinkHome.length + 1));
-            }, navSpawn);
-            return () => clearInterval(interval);
-        }}
+                document.getElementById('nav-link-home').className = styles.blink;
+                const interval = setInterval(() => {
+                    setNavLinkHome(navLinkHomeText.substring(0, navLinkHome.length + 1));
+                }, navSpawn);
+                return () => clearInterval(interval);
+            }
+        }
     }, [navLinkHome, navDisplay]);
     useEffect(() => {
         if (navLinkHome.length === navLinkHomeText.length) {
@@ -166,6 +184,7 @@ export default function Home() {
                 <h3>
                     <a href="#projects" className={styles.blink}>$<span>{typedThisFirst}</span>{typedThisSecond}</a>
                 </h3>
+                <img id="easter-egg" className={styles.easter_egg} style={{display:"none"}} src={"https://img2.freepng.fr/20171216/2f6/mercedes-car-png-image-5a34d3389d7347.8659712615134113846449.jpg"}  />
             </div>
             <div id="projects" className={`${styles.project_container}`}>
                 <h1 >Projects</h1>
@@ -181,7 +200,7 @@ export default function Home() {
                     <h2>Celian.contacts = [
                         {contacts.map((contact, index) => (
                             <a target={"_blank"} key={index} href={contact.link} rel="noreferrer">&quot;{contact.text}&quot;</a>))}
-                    ];</h2>
+                        ];</h2>
                 </div>
             </div>
         </div>

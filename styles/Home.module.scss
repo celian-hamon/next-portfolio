@@ -1,5 +1,8 @@
 @import 'settings';
 
+.easter_egg{
+  animation: easter_egg 1s infinite alternate linear;
+}
 .nav {
   position: fixed;
   width: 100%;
@@ -257,6 +260,16 @@
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes easter_egg {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg) translateX(random(1000px)+px) translateY(random(1000px)+px);
   }
 }
 
