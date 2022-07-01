@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import styles from '../styles/Home.module.scss'
-import ProjectCard from "./components/ProjectCard";
+import ProjectCard from "../components/ProjectCard";
 
 export default function Home() {
     const projects = [

@@ -1,6 +1,6 @@
 import '../styles/globals.scss'
 
-import TransitionLayout from "./components/TransitionLayout";
+import TransitionLayout from "../components/TransitionLayout";
 function MyApp({ Component, pageProps }) {
   return (
     <TransitionLayout>

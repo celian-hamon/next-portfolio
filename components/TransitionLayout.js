@@ -1,4 +1,4 @@
-import styles from '../../styles/TransitionLayout.module.scss';
+import styles from '../styles/TransitionLayout.module.scss';
 import Link from 'next/link';
 import { useState, memo, useEffect } from "react";
 
