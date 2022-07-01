@@ -1,0 +1,19 @@
+@import "./settings";
+
+.projects_container{
+    background: $background-color;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+
+    .projects_header {
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 200;
+            margin: 0;
+        }
+    }
+    
+}
